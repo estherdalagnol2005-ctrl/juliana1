@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { Award, Briefcase, ArrowRight, MessageCircle, Star, Target, Users, Landmark, UserCircle, LineChart, Calendar, Mail, Phone, MapPin, Instagram, Globe } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Award, Briefcase, ArrowRight, MessageCircle, Star, Target, Users, Landmark, UserCircle, LineChart, Calendar, Mail, Phone, MapPin, Instagram, Globe, Menu, X } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
   <motion.div
@@ -15,29 +15,61 @@ const FadeIn = ({ children, delay = 0, className = "" }: { children: React.React
 );
 
 export default function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#EAE0D6] text-[#471C19] font-sans selection:bg-[#471C19] selection:text-[#EAE0D6] overflow-x-hidden">
       
       {/* HEADER */}
       <header className="absolute top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
-          <div className="text-2xl font-serif text-[#471C19] flex items-start gap-1 leading-none">
+          <div className="text-xl md:text-2xl font-serif text-[#471C19] flex items-start gap-1 leading-none">
             <div>Juliana <br/><span className="font-light">Baldissera</span></div>
-            <Star className="w-3 h-3 text-[#C49A6C] mt-1" />
+            <Star className="w-2 h-2 md:w-3 md:h-3 text-[#C49A6C] mt-1" />
           </div>
-          <nav className="hidden md:flex gap-8 text-[12px] font-medium tracking-widest text-[#471C19] uppercase">
+          <nav className="hidden lg:flex gap-8 text-[12px] font-medium tracking-widest text-[#471C19] uppercase">
             <a href="#inicio" className="hover:text-[#C49A6C] transition-colors border-b border-[#471C19] pb-1">Início</a>
             <a href="#sobre" className="hover:text-[#C49A6C] transition-colors pb-1">Sobre</a>
             <a href="#servicos" className="hover:text-[#C49A6C] transition-colors pb-1">Serviços</a>
             <a href="#palestras" className="hover:text-[#C49A6C] transition-colors pb-1">Palestras</a>
             <a href="#contato" className="hover:text-[#C49A6C] transition-colors pb-1">Contato</a>
           </nav>
-          <div className="hidden md:block w-32"></div> {/* Visual balance spacer */}
+
+          <button className="lg:hidden p-2 -mr-2" onClick={() => setIsMenuOpen(true)}>
+            <Menu className="w-6 h-6 text-[#471C19]" />
+          </button>
+
+          <div className="hidden lg:block w-32"></div> {/* Visual balance spacer */}
         </div>
       </header>
 
+      {/* MOBILE MENU */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-[60] bg-[#EAE0D6] flex flex-col p-6"
+          >
+            <div className="flex justify-end h-16 items-center">
+              <button className="p-2 -mr-2" onClick={() => setIsMenuOpen(false)}>
+                <X className="w-8 h-8 text-[#471C19]" />
+              </button>
+            </div>
+            <nav className="flex flex-col gap-8 mt-12 text-center text-sm font-medium tracking-widest text-[#471C19] uppercase">
+              <a href="#inicio" onClick={() => setIsMenuOpen(false)} className="hover:text-[#C49A6C] transition-colors">Início</a>
+              <a href="#sobre" onClick={() => setIsMenuOpen(false)} className="hover:text-[#C49A6C] transition-colors">Sobre</a>
+              <a href="#servicos" onClick={() => setIsMenuOpen(false)} className="hover:text-[#C49A6C] transition-colors">Serviços</a>
+              <a href="#palestras" onClick={() => setIsMenuOpen(false)} className="hover:text-[#C49A6C] transition-colors">Palestras</a>
+              <a href="#contato" onClick={() => setIsMenuOpen(false)} className="hover:text-[#C49A6C] transition-colors">Contato</a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* HERO SECTION */}
-      <section id="inicio" className="relative min-h-[100svh] pt-32 pb-12 overflow-hidden flex flex-col justify-center">
+      <section id="inicio" className="relative min-h-[100svh] pt-32 pb-12 overflow-hidden flex flex-col justify-end md:justify-center">
         {/* Full Background Image */}
         <div className="absolute inset-0 z-0 bg-[#EAE0D6]">
           <img 
@@ -57,22 +89,22 @@ export default function App() {
           JB
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full h-full flex-1 flex flex-col justify-center">
-          <div className="space-y-8 max-w-2xl">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full h-full flex-1 flex flex-col justify-end md:justify-center pb-20 md:pb-0">
+          <div className="space-y-6 md:space-y-8 max-w-xl md:max-w-2xl bg-gradient-to-t from-[#EAE0D6]/90 via-[#EAE0D6]/70 to-transparent md:bg-none p-6 md:p-0 -mx-6 md:mx-0 pt-16 md:pt-0">
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="text-4xl md:text-5xl lg:text-[64px] font-serif font-light leading-[1.05] tracking-tight text-[#471C19]"
+              className="text-4xl sm:text-5xl lg:text-[64px] font-serif font-light leading-[1.05] tracking-tight text-[#471C19]"
             >
-              Autenticidade <br/>para ocupar o <br/><span className="italic">seu lugar.</span>
+              Autenticidade <br className="hidden md:block" />para ocupar o <br/><span className="italic">seu lugar.</span>
             </motion.h1>
 
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.2 }}
-              className="max-w-md text-[#471C19]/80 text-lg leading-relaxed"
+              className="max-w-md text-[#471C19]/80 text-base md:text-lg leading-relaxed"
             >
               Mentoria, coaching e consultoria para profissionais, líderes e organizações.
             </motion.p>
@@ -81,12 +113,12 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4"
             >
-              <button className="bg-[#471C19] text-[#EAE0D6] px-8 py-4 text-sm font-medium hover:bg-[#341512] transition-colors flex items-center justify-center gap-3 w-full sm:w-auto rounded-sm border border-[#471C19]">
+              <button className="bg-[#471C19] text-[#EAE0D6] px-6 py-3.5 md:px-8 md:py-4 text-xs md:text-sm font-medium hover:bg-[#341512] transition-colors flex items-center justify-center gap-3 w-full sm:w-auto rounded-sm border border-[#471C19]">
                 Quero conhecer <ArrowRight className="w-4 h-4" />
               </button>
-              <button className="border border-[#471C19] text-[#471C19] px-8 py-4 text-sm font-medium hover:bg-[#471C19] hover:text-[#EAE0D6] transition-colors flex items-center justify-center gap-3 w-full sm:w-auto rounded-sm backdrop-blur-sm bg-[#EAE0D6]/30">
+              <button className="border border-[#471C19] text-[#471C19] px-6 py-3.5 md:px-8 md:py-4 text-xs md:text-sm font-medium hover:bg-[#471C19] hover:text-[#EAE0D6] transition-colors flex items-center justify-center gap-3 w-full sm:w-auto rounded-sm backdrop-blur-sm bg-[#EAE0D6]/30">
                 Falar com Juliana <MessageCircle className="w-4 h-4" />
               </button>
             </motion.div>
@@ -95,29 +127,29 @@ export default function App() {
       </section>
 
       {/* FAIXA DE AUTORIDADE */}
-      <section className="bg-[#471C19] text-[#EAE0D6] py-10 relative z-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-4">
+      <section className="bg-[#471C19] text-[#EAE0D6] py-6 md:py-8 relative z-20">
+        <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
           <div className="flex items-center gap-4">
-            <div className="border border-[#C49A6C] rounded-full p-3"><UserCircle className="w-8 h-8 text-[#C49A6C] stroke-[1.5]" /></div>
+            <div className="border border-[#C49A6C] rounded-full p-2"><UserCircle className="w-5 h-5 md:w-6 md:h-6 text-[#C49A6C] stroke-[1.5]" /></div>
             <div>
-              <div className="text-2xl font-serif text-white">+18</div>
-              <div className="text-sm font-light text-[#EAE0D6]/80">anos de experiência</div>
+              <div className="text-lg md:text-xl font-serif text-white leading-none mb-1">+18</div>
+              <div className="text-[11px] md:text-xs font-light text-[#EAE0D6]/80 uppercase tracking-widest">anos de experiência</div>
             </div>
           </div>
-          <div className="hidden md:block w-px h-12 bg-white/10"></div>
+          <div className="hidden md:block w-px h-8 bg-white/10"></div>
           <div className="flex items-center gap-4">
-            <div className="border border-[#C49A6C] rounded-full p-3"><Landmark className="w-8 h-8 text-[#C49A6C] stroke-[1.5]" /></div>
+            <div className="border border-[#C49A6C] rounded-full p-2"><Landmark className="w-5 h-5 md:w-6 md:h-6 text-[#C49A6C] stroke-[1.5]" /></div>
             <div>
-              <div className="text-2xl font-serif text-white">+12</div>
-              <div className="text-sm font-light text-[#EAE0D6]/80">anos à frente da JBC</div>
+              <div className="text-lg md:text-xl font-serif text-white leading-none mb-1">+12</div>
+              <div className="text-[11px] md:text-xs font-light text-[#EAE0D6]/80 uppercase tracking-widest">anos à frente da JBC</div>
             </div>
           </div>
-          <div className="hidden md:block w-px h-12 bg-white/10"></div>
+          <div className="hidden md:block w-px h-8 bg-white/10"></div>
           <div className="flex items-center gap-4">
-            <div className="border border-[#C49A6C] rounded-full p-3"><Globe className="w-8 h-8 text-[#C49A6C] stroke-[1.5]" /></div>
+            <div className="border border-[#C49A6C] rounded-full p-2"><Globe className="w-5 h-5 md:w-6 md:h-6 text-[#C49A6C] stroke-[1.5]" /></div>
             <div>
-              <div className="text-2xl font-serif text-white">Certificações</div>
-              <div className="text-sm font-light text-[#EAE0D6]/80">internacionais</div>
+              <div className="text-lg md:text-xl font-serif text-white leading-none mb-1">Certificações</div>
+              <div className="text-[11px] md:text-xs font-light text-[#EAE0D6]/80 uppercase tracking-widest">internacionais</div>
             </div>
           </div>
         </div>
