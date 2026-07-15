@@ -41,19 +41,15 @@ export default function App() {
         {/* Full Background Image */}
         <div className="absolute inset-0 z-0 bg-[#EAE0D6]">
           <img 
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=2000" 
+            src="https://lh3.googleusercontent.com/d/1ljB_XPcm2es_Y7z-xWfoCd2OXWa0zA_A" 
             alt="Juliana Baldissera Desktop" 
-            className="hidden md:block w-full h-full object-cover object-top opacity-70 grayscale mix-blend-multiply"
+            className="hidden md:block w-full h-full object-cover object-center"
           />
           <img 
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+            src="https://lh3.googleusercontent.com/d/1p7DkNmici8xCE7tZc7a1MKbaZCLZBU4d" 
             alt="Juliana Baldissera Mobile" 
-            className="block md:hidden w-full h-full object-cover object-top opacity-70 grayscale mix-blend-multiply"
+            className="block md:hidden w-full h-full object-cover object-top"
           />
-          {/* Gradient para garantir a leitura do texto, sem criar sombra escura em cima */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#EAE0D6] via-[#EAE0D6]/80 to-transparent"></div>
-          {/* Gradient suave apenas na base para misturar com o resto do site, caso necessário */}
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#EAE0D6] to-transparent"></div>
         </div>
 
         {/* Background JB Monogram */}
@@ -67,7 +63,7 @@ export default function App() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="text-5xl md:text-[72px] lg:text-[84px] font-serif font-light leading-[1.05] tracking-tight text-[#471C19]"
+              className="text-4xl md:text-5xl lg:text-[64px] font-serif font-light leading-[1.05] tracking-tight text-[#471C19]"
             >
               Autenticidade <br/>para ocupar o <br/><span className="italic">seu lugar.</span>
             </motion.h1>
@@ -132,7 +128,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto text-center">
           <FadeIn>
             <div className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#471C19]/60 mb-4">Serviços</div>
-            <h2 className="text-4xl md:text-[42px] font-serif font-light text-[#471C19] mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-light text-[#471C19] mb-16">
               Soluções para pessoas e organizações <br className="hidden md:block" />
               que querem crescer com propósito.
             </h2>
@@ -149,7 +145,7 @@ export default function App() {
                 <div className="w-16 h-16 rounded-full bg-[#471C19] flex items-center justify-center mb-6 text-[#EAE0D6] group-hover:scale-110 transition-transform duration-300">
                   <item.icon className="w-8 h-8 stroke-[1.5]" />
                 </div>
-                <h3 className="text-xl font-serif text-[#471C19] mb-4 h-14 flex items-center justify-center">{item.title}</h3>
+                <h3 className="text-lg font-serif text-[#471C19] mb-4 h-14 flex items-center justify-center">{item.title}</h3>
                 <p className="text-sm text-[#471C19]/70 leading-relaxed">{item.desc}</p>
               </FadeIn>
             ))}
@@ -162,7 +158,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <div className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#471C19]/60 mb-4">Sobre Juliana</div>
-            <h2 className="text-4xl md:text-[48px] font-serif font-light text-[#471C19] mb-8 leading-[1.1]">
+            <h2 className="text-3xl md:text-4xl font-serif font-light text-[#471C19] mb-8 leading-[1.1]">
               Desenvolvimento humano que gera <br/>
               resultados reais e sustentáveis.
             </h2>
@@ -198,7 +194,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto text-center">
           <FadeIn>
             <div className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#471C19]/60 mb-4">Meu Método</div>
-            <h2 className="text-4xl md:text-[42px] font-serif font-light text-[#471C19] mb-20">
+            <h2 className="text-3xl md:text-4xl font-serif font-light text-[#471C19] mb-20">
               Um caminho claro para transformações consistentes.
             </h2>
           </FadeIn>
@@ -217,7 +213,7 @@ export default function App() {
                   <item.icon className="w-8 h-8 stroke-[1.5]" />
                 </div>
                 <div className="text-[#C49A6C] font-serif text-2xl mb-2">{item.num}</div>
-                <h3 className="text-2xl font-serif text-[#471C19] mb-4">{item.title}</h3>
+                <h3 className="text-xl font-serif text-[#471C19] mb-4">{item.title}</h3>
                 <p className="text-sm text-[#471C19]/70 leading-relaxed max-w-[250px]">{item.desc}</p>
               </FadeIn>
             ))}
@@ -230,7 +226,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto bg-[#471C19] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
           <div className="flex items-center gap-6 text-[#EAE0D6]">
             <Star className="w-10 h-10 text-[#C49A6C]" />
-            <h2 className="text-3xl md:text-4xl font-serif font-light leading-tight">
+            <h2 className="text-2xl md:text-3xl font-serif font-light leading-tight">
               O seu próximo nível começa <br/>com uma conversa.
             </h2>
           </div>
