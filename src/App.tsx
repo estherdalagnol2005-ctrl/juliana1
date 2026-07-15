@@ -39,14 +39,21 @@ export default function App() {
       {/* HERO SECTION */}
       <section id="inicio" className="relative min-h-[100svh] pt-32 pb-12 overflow-hidden flex flex-col justify-center">
         {/* Full Background Image */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 bg-[#EAE0D6]">
           <img 
             src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=2000" 
-            alt="Juliana Baldissera" 
-            className="w-full h-full object-cover object-top opacity-50 grayscale mix-blend-multiply"
+            alt="Juliana Baldissera Desktop" 
+            className="hidden md:block w-full h-full object-cover object-top opacity-70 grayscale mix-blend-multiply"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#EAE0D6] via-[#EAE0D6]/90 to-[#EAE0D6]/20"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#EAE0D6] via-transparent to-transparent md:hidden"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
+            alt="Juliana Baldissera Mobile" 
+            className="block md:hidden w-full h-full object-cover object-top opacity-70 grayscale mix-blend-multiply"
+          />
+          {/* Gradient para garantir a leitura do texto, sem criar sombra escura em cima */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#EAE0D6] via-[#EAE0D6]/80 to-transparent"></div>
+          {/* Gradient suave apenas na base para misturar com o resto do site, caso necessário */}
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#EAE0D6] to-transparent"></div>
         </div>
 
         {/* Background JB Monogram */}
