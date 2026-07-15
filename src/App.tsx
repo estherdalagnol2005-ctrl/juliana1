@@ -57,7 +57,7 @@ export default function App() {
                 <X className="w-8 h-8 text-[#471C19]" />
               </button>
             </div>
-            <nav className="flex flex-col gap-8 mt-12 text-center text-sm font-medium tracking-widest text-[#471C19] uppercase">
+            <nav className="flex-1 flex flex-col justify-center gap-8 pb-16 text-center text-sm font-medium tracking-widest text-[#471C19] uppercase">
               <a href="#inicio" onClick={() => setIsMenuOpen(false)} className="hover:text-[#C49A6C] transition-colors">Início</a>
               <a href="#sobre" onClick={() => setIsMenuOpen(false)} className="hover:text-[#C49A6C] transition-colors">Sobre</a>
               <a href="#servicos" onClick={() => setIsMenuOpen(false)} className="hover:text-[#C49A6C] transition-colors">Serviços</a>
