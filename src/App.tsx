@@ -69,9 +69,9 @@ export default function App() {
       </AnimatePresence>
 
       {/* HERO SECTION */}
-      <section id="inicio" className="relative min-h-[100svh] pt-32 pb-12 overflow-hidden flex flex-col justify-end md:justify-center">
+      <section id="inicio" className="relative min-h-[100svh] pt-32 pb-0 overflow-hidden flex flex-col justify-end md:justify-center">
         {/* Full Background Image */}
-        <div className="absolute inset-0 z-0 bg-[#EAE0D6]">
+        <div className="absolute inset-0 z-0 bg-[#EAE0D6] overflow-hidden">
           <img 
             src="https://lh3.googleusercontent.com/d/1ljB_XPcm2es_Y7z-xWfoCd2OXWa0zA_A" 
             alt="Juliana Baldissera Desktop" 
@@ -80,8 +80,10 @@ export default function App() {
           <img 
             src="https://lh3.googleusercontent.com/d/1p7DkNmici8xCE7tZc7a1MKbaZCLZBU4d" 
             alt="Juliana Baldissera Mobile" 
-            className="block md:hidden w-full h-full object-cover object-top"
+            className="block md:hidden absolute w-[130%] h-[130%] max-w-none object-cover left-1/2 top-0 -translate-x-[38%] -translate-y-[15%]"
           />
+          {/* Mobile Text Gradient Overlay */}
+          <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-[#EAE0D6] via-[#EAE0D6]/90 to-transparent md:hidden pointer-events-none"></div>
         </div>
 
         {/* Background JB Monogram */}
@@ -89,22 +91,22 @@ export default function App() {
           JB
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full h-full flex-1 flex flex-col justify-end md:justify-center pb-20 md:pb-0">
-          <div className="space-y-6 md:space-y-8 max-w-xl md:max-w-2xl bg-gradient-to-t from-[#EAE0D6]/90 via-[#EAE0D6]/70 to-transparent md:bg-none p-6 md:p-0 -mx-6 md:mx-0 pt-16 md:pt-0">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full h-full flex-1 flex flex-col justify-end md:justify-center pb-12 md:pb-0">
+          <div className="space-y-4 md:space-y-8 w-full md:max-w-2xl text-left flex flex-col items-start relative z-10 mb-2 md:mb-0">
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="text-4xl sm:text-5xl lg:text-[64px] font-serif font-light leading-[1.05] tracking-tight text-[#471C19]"
+              className="text-[34px] leading-[1.05] sm:text-4xl lg:text-[56px] font-serif font-light md:leading-[1.05] tracking-tight text-[#471C19] max-w-[300px] md:max-w-none"
             >
-              Autenticidade <br className="hidden md:block" />para ocupar o <br/><span className="italic">seu lugar.</span>
+              Autenticidade <br/>para ocupar o <br/><span className="italic">seu lugar.</span>
             </motion.h1>
 
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.2 }}
-              className="max-w-md text-[#471C19]/80 text-base md:text-lg leading-relaxed"
+              className="max-w-[270px] md:max-w-md text-[#471C19]/80 text-[15px] md:text-lg leading-[1.6]"
             >
               Mentoria, coaching e consultoria para profissionais, líderes e organizações.
             </motion.p>
@@ -113,12 +115,12 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full md:w-auto pr-8 md:pr-0"
             >
-              <button className="bg-[#471C19] text-[#EAE0D6] px-6 py-3.5 md:px-8 md:py-4 text-xs md:text-sm font-medium hover:bg-[#341512] transition-colors flex items-center justify-center gap-3 w-full sm:w-auto rounded-sm border border-[#471C19]">
+              <button className="bg-[#471C19] text-[#EAE0D6] px-6 py-4 md:px-8 md:py-4 text-[13px] md:text-sm font-medium hover:bg-[#341512] transition-colors flex items-center justify-center gap-3 w-full sm:w-auto rounded-sm border border-[#471C19]">
                 Quero conhecer <ArrowRight className="w-4 h-4" />
               </button>
-              <button className="border border-[#471C19] text-[#471C19] px-6 py-3.5 md:px-8 md:py-4 text-xs md:text-sm font-medium hover:bg-[#471C19] hover:text-[#EAE0D6] transition-colors flex items-center justify-center gap-3 w-full sm:w-auto rounded-sm backdrop-blur-sm bg-[#EAE0D6]/30">
+              <button className="hidden md:flex border border-[#471C19] text-[#471C19] px-6 py-4 md:px-8 md:py-4 text-[13px] md:text-sm font-medium hover:bg-[#471C19] hover:text-[#EAE0D6] transition-colors items-center justify-center gap-3 w-full sm:w-auto rounded-sm backdrop-blur-sm bg-[#EAE0D6]/30">
                 Falar com Juliana <MessageCircle className="w-4 h-4" />
               </button>
             </motion.div>
@@ -127,29 +129,31 @@ export default function App() {
       </section>
 
       {/* FAIXA DE AUTORIDADE */}
-      <section className="bg-[#471C19] text-[#EAE0D6] py-6 md:py-8 relative z-20">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
-          <div className="flex items-center gap-4">
-            <div className="border border-[#C49A6C] rounded-full p-2"><UserCircle className="w-5 h-5 md:w-6 md:h-6 text-[#C49A6C] stroke-[1.5]" /></div>
+      <section className="bg-[#471C19] text-[#EAE0D6] py-5 md:py-6 relative z-20">
+        <div className="max-w-5xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
+          <div className="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start text-left">
+            <div className="border border-[#C49A6C]/50 rounded-full p-2 flex-shrink-0"><UserCircle className="w-4 h-4 md:w-5 md:h-5 text-[#C49A6C] stroke-[1.5]" /></div>
             <div>
-              <div className="text-lg md:text-xl font-serif text-white leading-none mb-1">+18</div>
-              <div className="text-[11px] md:text-xs font-light text-[#EAE0D6]/80 uppercase tracking-widest">anos de experiência</div>
+              <div className="text-base md:text-lg font-serif text-white leading-none mb-1">+18</div>
+              <div className="text-[10px] font-light text-[#EAE0D6]/70 uppercase tracking-[0.2em]">anos de experiência</div>
             </div>
           </div>
           <div className="hidden md:block w-px h-8 bg-white/10"></div>
-          <div className="flex items-center gap-4">
-            <div className="border border-[#C49A6C] rounded-full p-2"><Landmark className="w-5 h-5 md:w-6 md:h-6 text-[#C49A6C] stroke-[1.5]" /></div>
+          <div className="w-full h-px bg-white/10 md:hidden"></div>
+          <div className="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start text-left">
+            <div className="border border-[#C49A6C]/50 rounded-full p-2 flex-shrink-0"><Landmark className="w-4 h-4 md:w-5 md:h-5 text-[#C49A6C] stroke-[1.5]" /></div>
             <div>
-              <div className="text-lg md:text-xl font-serif text-white leading-none mb-1">+12</div>
-              <div className="text-[11px] md:text-xs font-light text-[#EAE0D6]/80 uppercase tracking-widest">anos à frente da JBC</div>
+              <div className="text-base md:text-lg font-serif text-white leading-none mb-1">+12</div>
+              <div className="text-[10px] font-light text-[#EAE0D6]/70 uppercase tracking-[0.2em]">anos à frente da JBC</div>
             </div>
           </div>
           <div className="hidden md:block w-px h-8 bg-white/10"></div>
-          <div className="flex items-center gap-4">
-            <div className="border border-[#C49A6C] rounded-full p-2"><Globe className="w-5 h-5 md:w-6 md:h-6 text-[#C49A6C] stroke-[1.5]" /></div>
+          <div className="w-full h-px bg-white/10 md:hidden"></div>
+          <div className="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start text-left">
+            <div className="border border-[#C49A6C]/50 rounded-full p-2 flex-shrink-0"><Globe className="w-4 h-4 md:w-5 md:h-5 text-[#C49A6C] stroke-[1.5]" /></div>
             <div>
-              <div className="text-lg md:text-xl font-serif text-white leading-none mb-1">Certificações</div>
-              <div className="text-[11px] md:text-xs font-light text-[#EAE0D6]/80 uppercase tracking-widest">internacionais</div>
+              <div className="text-base md:text-lg font-serif text-white leading-none mb-1">Certificações</div>
+              <div className="text-[10px] font-light text-[#EAE0D6]/70 uppercase tracking-[0.2em]">internacionais</div>
             </div>
           </div>
         </div>
