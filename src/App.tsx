@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Award, Briefcase, ArrowRight, MessageCircle, Star, Target, Users, Landmark, UserCircle, LineChart, Calendar, Mail, Phone, MapPin, Instagram, Globe, Menu, X } from 'lucide-react';
 
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
+const FadeIn = ({ children, delay = 0, className = "" }: { children?: React.ReactNode, delay?: number, className?: string, key?: React.Key }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -280,7 +280,7 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
             {/* Connecting Line */}
-            <div className="hidden md:block absolute top-10 left-[15%] right-[15%] h-[1px] bg-[#471C19]/10"></div>
+            <FadeIn delay={0.2} className="hidden md:block absolute top-10 left-[15%] right-[15%] h-[1px] bg-[#471C19]/10"></FadeIn>
 
             {[
               { num: "01", icon: Star, title: "Clareza", desc: "Autoconhecimento e consciência para entender quem você é e onde quer chegar." },
@@ -302,44 +302,46 @@ export default function App() {
 
       {/* CTA BAR */}
       <section className="py-12 px-6 md:px-12 bg-[#F6EFEB]">
-        <div className="max-w-6xl mx-auto bg-[#471C19] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
-          <div className="flex items-center gap-6 text-[#EAE0D6]">
-            <Star className="w-10 h-10 text-[#C49A6C]" />
-            <h2 className="text-2xl md:text-3xl font-serif font-light leading-tight">
-              O seu próximo nível começa <br/>com uma conversa.
-            </h2>
+        <FadeIn>
+          <div className="max-w-6xl mx-auto bg-[#471C19] rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+            <div className="flex items-center gap-6 text-[#EAE0D6]">
+              <Star className="w-10 h-10 text-[#C49A6C]" />
+              <h2 className="text-2xl md:text-3xl font-serif font-light leading-tight">
+                O seu próximo nível começa <br/>com uma conversa.
+              </h2>
+            </div>
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              <p className="text-[#EAE0D6]/80 text-sm max-w-[250px] text-center md:text-left">
+                Vamos entender seus desafios e traçar juntos o caminho ideal para você ou sua empresa.
+              </p>
+              <button className="bg-[#C49A6C] text-[#471C19] px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-white transition-colors flex items-center justify-center gap-3 rounded-sm whitespace-nowrap">
+                Agende uma conversa <Calendar className="w-4 h-4" />
+              </button>
+            </div>
           </div>
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <p className="text-[#EAE0D6]/80 text-sm max-w-[250px] text-center md:text-left">
-              Vamos entender seus desafios e traçar juntos o caminho ideal para você ou sua empresa.
-            </p>
-            <button className="bg-[#C49A6C] text-[#471C19] px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-white transition-colors flex items-center justify-center gap-3 rounded-sm whitespace-nowrap">
-              Agende uma conversa <Calendar className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
+        </FadeIn>
       </section>
 
       {/* FOOTER */}
       <footer className="bg-[#311613] text-[#EAE0D6] pt-16 pb-8 border-t border-[#471C19]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-            <div className="col-span-1 md:col-span-1">
+            <FadeIn delay={0} className="col-span-1 md:col-span-1">
               <div className="text-3xl font-serif text-[#C49A6C] flex items-start gap-1 leading-none mb-4">
                 <div>Juliana <br/><span className="font-light text-[#EAE0D6]">Baldissera</span></div>
               </div>
-            </div>
+            </FadeIn>
             
-            <div className="col-span-1">
+            <FadeIn delay={0.1} className="col-span-1">
               <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#EAE0D6]/50 mb-6">Contato</h4>
               <ul className="space-y-4 text-sm text-[#EAE0D6]/80">
                 <li className="flex items-center gap-3"><Mail className="w-4 h-4 text-[#C49A6C]" /> contato@julianabaldissera.com.br</li>
                 <li className="flex items-center gap-3"><Phone className="w-4 h-4 text-[#C49A6C]" /> (11) 99999-9999</li>
                 <li className="flex items-center gap-3"><MapPin className="w-4 h-4 text-[#C49A6C]" /> São Paulo – SP | Atendimento online</li>
               </ul>
-            </div>
+            </FadeIn>
 
-            <div className="col-span-1">
+            <FadeIn delay={0.2} className="col-span-1">
               <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#EAE0D6]/50 mb-6">Me Acompanhe</h4>
               <ul className="space-y-4 text-sm text-[#EAE0D6]/80">
                 <li className="flex items-center gap-3"><Instagram className="w-4 h-4 text-[#C49A6C]" /> @julianabaldissera</li>
@@ -347,18 +349,20 @@ export default function App() {
               <p className="mt-6 text-xs text-[#EAE0D6]/60 leading-relaxed pr-4">
                 Construindo caminhos de autenticidade, liderança e realização.
               </p>
-            </div>
+            </FadeIn>
 
-            <div className="col-span-1 flex justify-end items-end hidden md:flex">
+            <FadeIn delay={0.3} className="col-span-1 flex justify-end items-end hidden md:flex">
               <div className="text-[120px] font-serif font-light text-[#EAE0D6]/5 leading-none">
                 JB
               </div>
-            </div>
+            </FadeIn>
           </div>
 
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center text-[10px] text-white/40 uppercase tracking-widest text-center">
-            <p>© 2026 Juliana Baldissera. Todos os direitos reservados.</p>
-          </div>
+          <FadeIn delay={0.4}>
+            <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-center items-center text-[10px] text-white/40 uppercase tracking-widest text-center">
+              <p>© 2026 Juliana Baldissera. Todos os direitos reservados.</p>
+            </div>
+          </FadeIn>
         </div>
       </footer>
     </div>
