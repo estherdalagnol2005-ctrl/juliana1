@@ -69,7 +69,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* HERO SECTION */}
-      <section id="inicio" className="relative min-h-[100svh] pt-32 pb-0 overflow-hidden flex flex-col justify-end md:justify-center">
+      <section id="inicio" className="relative min-h-[100svh] h-auto pt-[120px] pb-16 md:pb-0 overflow-hidden flex flex-col justify-end md:justify-center">
         {/* Full Background Image */}
         <div className="absolute inset-0 z-0 bg-[#EAE0D6] overflow-hidden">
           <img 
@@ -80,10 +80,11 @@ export default function App() {
           <img 
             src="https://lh3.googleusercontent.com/d/1p7DkNmici8xCE7tZc7a1MKbaZCLZBU4d" 
             alt="Juliana Baldissera Mobile" 
-            className="block md:hidden absolute w-[130%] h-[130%] max-w-none object-cover left-1/2 top-0 -translate-x-[38%] -translate-y-[15%]"
+            className="block md:hidden absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: '52% 35%', transform: 'scale(1.08)' }}
           />
           {/* Mobile Text Gradient Overlay */}
-          <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-[#EAE0D6] via-[#EAE0D6]/90 to-transparent md:hidden pointer-events-none"></div>
+          <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-[#EAE0D6] 10% via-[#EAE0D6]/85 50% to-transparent md:hidden pointer-events-none"></div>
         </div>
 
         {/* Background JB Monogram */}
@@ -91,22 +92,23 @@ export default function App() {
           JB
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full h-full flex-1 flex flex-col justify-end md:justify-center pb-12 md:pb-0">
-          <div className="space-y-4 md:space-y-8 w-full md:max-w-2xl text-left flex flex-col items-start relative z-10 mb-2 md:mb-0">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full h-full flex-1 flex flex-col justify-end md:justify-center">
+          <div className="space-y-4 md:space-y-8 w-full md:max-w-2xl text-left flex flex-col items-start relative z-10 mt-auto md:mt-0">
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="text-[34px] leading-[1.05] sm:text-4xl lg:text-[56px] font-serif font-light md:leading-[1.05] tracking-tight text-[#471C19] max-w-[300px] md:max-w-none"
+              className="text-[34px] leading-[1.05] sm:text-4xl lg:text-[56px] font-serif font-light md:leading-[1.05] tracking-tight text-[#471C19] w-full"
             >
-              Autenticidade <br/>para ocupar o <br/><span className="italic">seu lugar.</span>
+              <span className="block md:hidden">Autenticidade para <br/>ocupar o <br/><span className="italic">seu lugar.</span></span>
+              <span className="hidden md:block">Autenticidade <br/>para ocupar o <br/><span className="italic">seu lugar.</span></span>
             </motion.h1>
 
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.2 }}
-              className="max-w-[270px] md:max-w-md text-[#471C19]/80 text-[15px] md:text-lg leading-[1.6]"
+              className="max-w-[280px] md:max-w-md text-[#471C19]/80 text-[15px] md:text-lg leading-[1.5]"
             >
               Mentoria, coaching e consultoria para profissionais, líderes e organizações.
             </motion.p>
@@ -115,7 +117,7 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 w-full md:w-auto pr-8 md:pr-0"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4 md:pt-2 w-full md:w-auto"
             >
               <button className="bg-[#471C19] text-[#EAE0D6] px-6 py-4 md:px-8 md:py-4 text-[13px] md:text-sm font-medium hover:bg-[#341512] transition-colors flex items-center justify-center gap-3 w-full sm:w-auto rounded-sm border border-[#471C19]">
                 Quero conhecer <ArrowRight className="w-4 h-4" />
