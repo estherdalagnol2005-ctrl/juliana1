@@ -76,7 +76,7 @@ export default function App() {
             src="https://lh3.googleusercontent.com/d/1ljB_XPcm2es_Y7z-xWfoCd2OXWa0zA_A" 
             alt="Juliana Baldissera Desktop" 
             className="hidden md:block w-full h-full object-cover"
-            style={{ objectPosition: '42% center', transform: 'scale(1.08)', transformOrigin: 'center center' }}
+            style={{ objectPosition: 'center 25%', transform: 'scale(1.18) translateX(-8%)', transformOrigin: 'center 25%' }}
           />
           <img 
             src="https://lh3.googleusercontent.com/d/1p7DkNmici8xCE7tZc7a1MKbaZCLZBU4d" 
