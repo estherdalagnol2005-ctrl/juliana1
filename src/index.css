@@ -9,3 +9,22 @@ body {
   background-color: #EAE0D6;
   color: #471C19;
 }
+
+@keyframes authorityMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: authorityMarquee 22s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
+  }
+}

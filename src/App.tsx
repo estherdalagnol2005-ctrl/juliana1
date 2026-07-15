@@ -131,38 +131,79 @@ export default function App() {
       </section>
 
       {/* FAIXA DE AUTORIDADE */}
-      <section className="bg-[#471C19] text-[#EAE0D6] py-5 md:py-6 relative z-20">
-        <div className="max-w-5xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
-          <div className="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start text-left">
-            <div className="border border-[#C49A6C]/50 rounded-full p-2 flex-shrink-0"><UserCircle className="w-4 h-4 md:w-5 md:h-5 text-[#C49A6C] stroke-[1.5]" /></div>
-            <div>
-              <div className="text-base md:text-lg font-serif text-white leading-none mb-1">+18</div>
-              <div className="text-[10px] font-light text-[#EAE0D6]/70 uppercase tracking-[0.2em]">anos de experiência</div>
+      <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-10%" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="bg-[#471C19] text-[#EAE0D6] py-3 md:py-4 relative z-20 overflow-hidden flex items-center md:justify-center group border-t border-[#C49A6C]/10 border-b"
+      >
+        <div className="flex md:hidden w-max animate-marquee group-hover:[animation-play-state:paused] group-active:[animation-play-state:paused]">
+          {[1, 2].map((loop) => (
+            <div key={loop} className="flex items-center">
+              <div className="flex items-center gap-3 px-6">
+                <div className="border border-[#C49A6C]/40 rounded-full p-1.5 flex-shrink-0 transition-colors group-hover:border-[#C49A6C] group-hover:shadow-[0_0_8px_rgba(196,154,108,0.3)]"><UserCircle className="w-3.5 h-3.5 text-[#C49A6C] stroke-[1.5]" /></div>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-[22px] font-serif text-white leading-none">+18</span>
+                  <span className="text-[11px] font-light text-[#EAE0D6]/80 uppercase tracking-widest leading-none whitespace-nowrap">anos de experiência</span>
+                </div>
+              </div>
+              <div className="w-px h-5 bg-[#C49A6C]/20"></div>
+              
+              <div className="flex items-center gap-3 px-6">
+                <div className="border border-[#C49A6C]/40 rounded-full p-1.5 flex-shrink-0 transition-colors group-hover:border-[#C49A6C] group-hover:shadow-[0_0_8px_rgba(196,154,108,0.3)]"><Landmark className="w-3.5 h-3.5 text-[#C49A6C] stroke-[1.5]" /></div>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-[22px] font-serif text-white leading-none">+12</span>
+                  <span className="text-[11px] font-light text-[#EAE0D6]/80 uppercase tracking-widest leading-none whitespace-nowrap">anos à frente da JBC</span>
+                </div>
+              </div>
+              <div className="w-px h-5 bg-[#C49A6C]/20"></div>
+              
+              <div className="flex items-center gap-3 px-6">
+                <div className="border border-[#C49A6C]/40 rounded-full p-1.5 flex-shrink-0 transition-colors group-hover:border-[#C49A6C] group-hover:shadow-[0_0_8px_rgba(196,154,108,0.3)]"><Globe className="w-3.5 h-3.5 text-[#C49A6C] stroke-[1.5]" /></div>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-[22px] font-serif text-white leading-none">Certificações</span>
+                  <span className="text-[11px] font-light text-[#EAE0D6]/80 uppercase tracking-widest leading-none whitespace-nowrap">internacionais</span>
+                </div>
+              </div>
+              <div className="w-px h-5 bg-[#C49A6C]/20"></div>
             </div>
-          </div>
-          <div className="hidden md:block w-px h-8 bg-white/10"></div>
-          <div className="w-full h-px bg-white/10 md:hidden"></div>
-          <div className="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start text-left">
-            <div className="border border-[#C49A6C]/50 rounded-full p-2 flex-shrink-0"><Landmark className="w-4 h-4 md:w-5 md:h-5 text-[#C49A6C] stroke-[1.5]" /></div>
-            <div>
-              <div className="text-base md:text-lg font-serif text-white leading-none mb-1">+12</div>
-              <div className="text-[10px] font-light text-[#EAE0D6]/70 uppercase tracking-[0.2em]">anos à frente da JBC</div>
-            </div>
-          </div>
-          <div className="hidden md:block w-px h-8 bg-white/10"></div>
-          <div className="w-full h-px bg-white/10 md:hidden"></div>
-          <div className="flex items-center gap-4 w-full md:w-auto justify-center md:justify-start text-left">
-            <div className="border border-[#C49A6C]/50 rounded-full p-2 flex-shrink-0"><Globe className="w-4 h-4 md:w-5 md:h-5 text-[#C49A6C] stroke-[1.5]" /></div>
-            <div>
-              <div className="text-base md:text-lg font-serif text-white leading-none mb-1">Certificações</div>
-              <div className="text-[10px] font-light text-[#EAE0D6]/70 uppercase tracking-[0.2em]">internacionais</div>
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
+
+        <div className="hidden md:flex max-w-6xl mx-auto px-6 md:px-12 justify-center items-center gap-8">
+            <div className="flex items-center gap-3">
+              <div className="border border-[#C49A6C]/40 rounded-full p-1.5 flex-shrink-0 hover:border-[#C49A6C] transition-colors"><UserCircle className="w-4 h-4 text-[#C49A6C] stroke-[1.5]" /></div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-[24px] font-serif text-white leading-none">+18</span>
+                <span className="text-[12px] font-light text-[#EAE0D6]/80 uppercase tracking-widest leading-none whitespace-nowrap">anos de experiência</span>
+              </div>
+            </div>
+            
+            <div className="w-px h-6 bg-[#C49A6C]/20"></div>
+            
+            <div className="flex items-center gap-3">
+              <div className="border border-[#C49A6C]/40 rounded-full p-1.5 flex-shrink-0 hover:border-[#C49A6C] transition-colors"><Landmark className="w-4 h-4 text-[#C49A6C] stroke-[1.5]" /></div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-[24px] font-serif text-white leading-none">+12</span>
+                <span className="text-[12px] font-light text-[#EAE0D6]/80 uppercase tracking-widest leading-none whitespace-nowrap">anos à frente da JBC</span>
+              </div>
+            </div>
+            
+            <div className="w-px h-6 bg-[#C49A6C]/20"></div>
+            
+            <div className="flex items-center gap-3">
+              <div className="border border-[#C49A6C]/40 rounded-full p-1.5 flex-shrink-0 hover:border-[#C49A6C] transition-colors"><Globe className="w-4 h-4 text-[#C49A6C] stroke-[1.5]" /></div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-[24px] font-serif text-white leading-none">Certificações</span>
+                <span className="text-[12px] font-light text-[#EAE0D6]/80 uppercase tracking-widest leading-none whitespace-nowrap">internacionais</span>
+              </div>
+            </div>
+        </div>
+      </motion.section>
 
       {/* SERVIÇOS */}
-      <section id="servicos" className="py-24 px-6 md:px-12 bg-[#F6EFEB]">
+      <section id="servicos" className="pt-16 pb-20 md:py-24 px-6 md:px-12 bg-[#F6EFEB]">
         <div className="max-w-7xl mx-auto text-center">
           <FadeIn>
             <div className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#471C19]/60 mb-4">Serviços</div>
